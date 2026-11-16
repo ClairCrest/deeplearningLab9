@@ -1,0 +1,19 @@
+{
+  "data_dir": "/storage/slurm/home/69070701619@cpe.kmutt.ac.th/deep_learning/data/lab_9",
+  "out_dir": "/storage/slurm/home/69070701619@cpe.kmutt.ac.th/deep_learning/results/lab_9/26980",
+  "epochs": 10,
+  "batch_size": 32,
+  "d_model": 512,
+  "n_layers": 6,
+  "n_heads": 8,
+  "d_ff": 2048,
+  "dropout": 0.1,
+  "max_src": 512,
+  "max_tgt": 128,
+  "warmup": 4000,
+  "lr_factor": 1.0,
+  "label_smoothing": 0.1,
+  "n_train": 0,
+  "num_workers": 4,
+  "seed": 42
+}

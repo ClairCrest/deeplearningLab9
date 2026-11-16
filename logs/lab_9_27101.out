@@ -1,0 +1,255 @@
+=== Host ===
+Job executed on: gpu08.slurm.cpe.kmutt.ac.th
+Job started on: Sat Nov 14 12:27:05 AM +07 2026
+=== Python ===
+Python executable location: /storage/slurm/home/69070701619@cpe.kmutt.ac.th/deep_learning/env_dl/bin/python
+Python version: Python 3.12.3
+=== GPU ===
+Sat Nov 14 00:27:05 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     Off |   00000000:00:11.0 Off |                    0 |
+| N/A   53C    P0             74W /  300W |      14MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            1874      G   /usr/lib/xorg/Xorg                        4MiB |
++-----------------------------------------------------------------------------------------+
+CUDA OK: NVIDIA L40
+=== [1/4] Install dependencies ===
+=== [2/4] Download dataset, tokenizer, metric models ===
+train (95705, 3)
+validation (13368, 3)
+test (11490, 3)
+prefetch done; on offline compute nodes set HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1
+=== [3/4] Train ===
+{'data_dir': '/storage/slurm/home/69070701619@cpe.kmutt.ac.th/deep_learning/data/lab_9', 'out_dir': '/storage/slurm/home/69070701619@cpe.kmutt.ac.th/deep_learning/results/lab_9/27101', 'epochs': 10, 'batch_size': 32, 'd_model': 512, 'n_layers': 6, 'n_heads': 8, 'd_ff': 2048, 'dropout': 0.1, 'max_src': 512, 'max_tgt': 128, 'warmup': 4000, 'lr_factor': 1.0, 'label_smoothing': 0.1, 'n_train': 0, 'num_workers': 4, 'seed': 42} device: cuda amp: torch.bfloat16
+train 95705  valid 13368
+trainable params: 58,987,844
+  step 0/2991 loss 12.3064 lr 1.75e-07 4s
+  step 200/2991 loss 9.0468 lr 3.51e-05 32s
+  step 400/2991 loss 8.1776 lr 7.01e-05 60s
+  step 600/2991 loss 7.7476 lr 1.05e-04 88s
+  step 800/2991 loss 7.4613 lr 1.40e-04 116s
+  step 1000/2991 loss 7.2359 lr 1.75e-04 144s
+  step 1200/2991 loss 7.0495 lr 2.10e-04 172s
+  step 1400/2991 loss 6.8916 lr 2.45e-04 200s
+  step 1600/2991 loss 6.7504 lr 2.80e-04 229s
+  step 1800/2991 loss 6.6268 lr 3.15e-04 257s
+  step 2000/2991 loss 6.5147 lr 3.50e-04 285s
+  step 2200/2991 loss 6.4140 lr 3.84e-04 313s
+  step 2400/2991 loss 6.3209 lr 4.19e-04 341s
+  step 2600/2991 loss 6.2336 lr 4.54e-04 369s
+  step 2800/2991 loss 6.1530 lr 4.89e-04 397s
+Epoch 1: train ppl 437.25  valid ppl 240.12  valid ppl w/ wrong article 348.61  (445s)
+  sample: Spokeswoman : " I can ' t know what I can ' t be a " Burros is a " to be a " " to be a " " in the " The " is the most important to be a " for the first time "
+  saved best checkpoint
+  step 0/2991 loss 4.6945 lr 5.23e-04 0s
+  step 200/2991 loss 4.8522 lr 5.58e-04 28s
+  step 400/2991 loss 4.8364 lr 5.93e-04 56s
+  step 600/2991 loss 4.8192 lr 6.27e-04 85s
+  step 800/2991 loss 4.8024 lr 6.62e-04 113s
+  step 1000/2991 loss 4.7850 lr 6.97e-04 141s
+  step 1200/2991 loss 4.7684 lr 6.83e-04 169s
+  step 1400/2991 loss 4.7532 lr 6.67e-04 197s
+  step 1600/2991 loss 4.7337 lr 6.52e-04 225s
+  step 1800/2991 loss 4.7163 lr 6.38e-04 253s
+  step 2000/2991 loss 4.6961 lr 6.26e-04 281s
+  step 2200/2991 loss 4.6754 lr 6.13e-04 309s
+  step 2400/2991 loss 4.6555 lr 6.02e-04 337s
+  step 2600/2991 loss 4.6375 lr 5.91e-04 365s
+  step 2800/2991 loss 4.6197 lr 5.81e-04 393s
+Epoch 2: train ppl 99.80  valid ppl 124.80  valid ppl w/ wrong article 302.16  (441s)
+  sample: Zains : " I ' m not going to be surprised " to help you know what I ' m like I ' m going to be " I ' m not going to be surprised " She says she ' s " a big - life - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  saved best checkpoint
+  step 0/2991 loss 3.8777 lr 5.71e-04 1s
+  step 200/2991 loss 4.1329 lr 5.62e-04 29s
+  step 400/2991 loss 4.1421 lr 5.53e-04 57s
+  step 600/2991 loss 4.1427 lr 5.45e-04 85s
+  step 800/2991 loss 4.1387 lr 5.37e-04 113s
+  step 1000/2991 loss 4.1306 lr 5.29e-04 141s
+  step 1200/2991 loss 4.1235 lr 5.21e-04 169s
+  step 1400/2991 loss 4.1157 lr 5.14e-04 197s
+  step 1600/2991 loss 4.1080 lr 5.08e-04 225s
+  step 1800/2991 loss 4.1017 lr 5.01e-04 253s
+  step 2000/2991 loss 4.0982 lr 4.95e-04 281s
+  step 2200/2991 loss 4.0918 lr 4.89e-04 309s
+  step 2400/2991 loss 4.0851 lr 4.83e-04 337s
+  step 2600/2991 loss 4.0777 lr 4.77e-04 365s
+  step 2800/2991 loss 4.0713 lr 4.72e-04 393s
+Epoch 3: train ppl 58.20  valid ppl 87.70  valid ppl w/ wrong article 301.81  (441s)
+  sample: Brousy Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Zrous, a surgeon and her brother are a physician.
+  saved best checkpoint
+  step 0/2991 loss 3.6253 lr 4.67e-04 1s
+  step 200/2991 loss 3.7315 lr 4.61e-04 29s
+  step 400/2991 loss 3.7382 lr 4.56e-04 57s
+  step 600/2991 loss 3.7356 lr 4.52e-04 85s
+  step 800/2991 loss 3.7362 lr 4.47e-04 113s
+  step 1000/2991 loss 3.7351 lr 4.43e-04 141s
+  step 1200/2991 loss 3.7376 lr 4.38e-04 169s
+  step 1400/2991 loss 3.7361 lr 4.34e-04 197s
+  step 1600/2991 loss 3.7348 lr 4.30e-04 225s
+  step 1800/2991 loss 3.7328 lr 4.26e-04 253s
+  step 2000/2991 loss 3.7311 lr 4.22e-04 281s
+  step 2200/2991 loss 3.7290 lr 4.18e-04 309s
+  step 2400/2991 loss 3.7270 lr 4.14e-04 337s
+  step 2600/2991 loss 3.7227 lr 4.11e-04 365s
+  step 2800/2991 loss 3.7192 lr 4.07e-04 393s
+Epoch 4: train ppl 41.10  valid ppl 65.03  valid ppl w/ wrong article 295.46  (441s)
+  sample: Share your story on a Facebook page that can be a stranger. The donor ' s brother and brother are among the recipients of the American donors. The donor is a donor of the donors and a donor donor donor.
+  saved best checkpoint
+  step 0/2991 loss 3.4848 lr 4.04e-04 1s
+  step 200/2991 loss 3.4308 lr 4.01e-04 29s
+  step 400/2991 loss 3.4342 lr 3.97e-04 57s
+  step 600/2991 loss 3.4316 lr 3.94e-04 85s
+  step 800/2991 loss 3.4403 lr 3.91e-04 113s
+  step 1000/2991 loss 3.4463 lr 3.88e-04 141s
+  step 1200/2991 loss 3.4451 lr 3.85e-04 169s
+  step 1400/2991 loss 3.4483 lr 3.82e-04 197s
+  step 1600/2991 loss 3.4483 lr 3.79e-04 225s
+  step 1800/2991 loss 3.4498 lr 3.77e-04 253s
+  step 2000/2991 loss 3.4522 lr 3.74e-04 281s
+  step 2200/2991 loss 3.4534 lr 3.71e-04 310s
+  step 2400/2991 loss 3.4540 lr 3.69e-04 338s
+  step 2600/2991 loss 3.4546 lr 3.66e-04 366s
+  step 2800/2991 loss 3.4537 lr 3.64e-04 394s
+Epoch 5: train ppl 31.57  valid ppl 53.50  valid ppl w/ wrong article 295.55  (442s)
+  sample: Zully Broussard ' s kidney is a higher level than a person. The Broussard selflessly recipient is a co - founded by a stranger. The two are a surgeon who works to help save the kidney.
+  saved best checkpoint
+  step 0/2991 loss 3.1753 lr 3.61e-04 0s
+  step 200/2991 loss 3.1973 lr 3.59e-04 29s
+  step 400/2991 loss 3.2064 lr 3.57e-04 57s
+  step 600/2991 loss 3.2143 lr 3.54e-04 85s
+  step 800/2991 loss 3.2236 lr 3.52e-04 113s
+  step 1000/2991 loss 3.2305 lr 3.50e-04 141s
+  step 1200/2991 loss 3.2345 lr 3.48e-04 169s
+  step 1400/2991 loss 3.2359 lr 3.46e-04 197s
+  step 1600/2991 loss 3.2373 lr 3.43e-04 225s
+  step 1800/2991 loss 3.2385 lr 3.41e-04 253s
+  step 2000/2991 loss 3.2408 lr 3.39e-04 281s
+  step 2200/2991 loss 3.2422 lr 3.37e-04 309s
+  step 2400/2991 loss 3.2429 lr 3.35e-04 337s
+  step 2600/2991 loss 3.2432 lr 3.34e-04 366s
+  step 2800/2991 loss 3.2437 lr 3.32e-04 394s
+Epoch 6: train ppl 25.60  valid ppl 43.68  valid ppl w/ wrong article 305.21  (442s)
+  sample: Share your gift to a stranger to give one one one one to one stranger. The donor ' s gift is a higher level of genetic support. The donor ' s brother says he ' s willing to give him a kidney.
+  saved best checkpoint
+  step 0/2991 loss 3.0748 lr 3.30e-04 1s
+  step 200/2991 loss 3.0045 lr 3.28e-04 29s
+  step 400/2991 loss 3.0112 lr 3.26e-04 57s
+  step 600/2991 loss 3.0240 lr 3.25e-04 85s
+  step 800/2991 loss 3.0298 lr 3.23e-04 113s
+  step 1000/2991 loss 3.0369 lr 3.21e-04 141s
+  step 1200/2991 loss 3.0421 lr 3.19e-04 169s
+  step 1400/2991 loss 3.0466 lr 3.18e-04 197s
+  step 1600/2991 loss 3.0488 lr 3.16e-04 225s
+  step 1800/2991 loss 3.0537 lr 3.14e-04 253s
+  step 2000/2991 loss 3.0575 lr 3.13e-04 281s
+  step 2200/2991 loss 3.0588 lr 3.11e-04 309s
+  step 2400/2991 loss 3.0629 lr 3.10e-04 337s
+  step 2600/2991 loss 3.0649 lr 3.08e-04 365s
+  step 2800/2991 loss 3.0647 lr 3.07e-04 393s
+Epoch 7: train ppl 21.46  valid ppl 37.92  valid ppl w/ wrong article 304.21  (441s)
+  sample: Zully Broussard, a covey, is taking five kidneys from donors. The most important recipient is a covey, a covey, and a covey, is taking five to 70 surgeries. The donor works on a simple swap that can be wrapped up in a kidney swap.
+  saved best checkpoint
+  step 0/2991 loss 3.0337 lr 3.05e-04 1s
+  step 200/2991 loss 2.8554 lr 3.04e-04 29s
+  step 400/2991 loss 2.8669 lr 3.03e-04 57s
+  step 600/2991 loss 2.8725 lr 3.01e-04 85s
+  step 800/2991 loss 2.8794 lr 3.00e-04 113s
+  step 1000/2991 loss 2.8853 lr 2.98e-04 141s
+  step 1200/2991 loss 2.8913 lr 2.97e-04 169s
+  step 1400/2991 loss 2.8928 lr 2.96e-04 197s
+  step 1600/2991 loss 2.8970 lr 2.94e-04 225s
+  step 1800/2991 loss 2.9026 lr 2.93e-04 253s
+  step 2000/2991 loss 2.9074 lr 2.92e-04 281s
+  step 2200/2991 loss 2.9106 lr 2.91e-04 309s
+  step 2400/2991 loss 2.9128 lr 2.89e-04 337s
+  step 2600/2991 loss 2.9161 lr 2.88e-04 366s
+  step 2800/2991 loss 2.9180 lr 2.87e-04 394s
+Epoch 8: train ppl 18.54  valid ppl 34.36  valid ppl w/ wrong article 312.29  (442s)
+  sample: A kidney transplant recipient is taking five surgeons into six recipients. The multi - million people are in need of a kidney transplant. The organ swap is a surgeon for a doctor who works on a donor swap.
+  saved best checkpoint
+  step 0/2991 loss 2.7873 lr 2.86e-04 1s
+  step 200/2991 loss 2.7300 lr 2.85e-04 29s
+  step 400/2991 loss 2.7371 lr 2.83e-04 57s
+  step 600/2991 loss 2.7462 lr 2.82e-04 85s
+  step 800/2991 loss 2.7540 lr 2.81e-04 113s
+  step 1000/2991 loss 2.7588 lr 2.80e-04 141s
+  step 1200/2991 loss 2.7667 lr 2.79e-04 169s
+  step 1400/2991 loss 2.7729 lr 2.78e-04 197s
+  step 1600/2991 loss 2.7789 lr 2.77e-04 225s
+  step 1800/2991 loss 2.7817 lr 2.76e-04 253s
+  step 2000/2991 loss 2.7856 lr 2.74e-04 281s
+  step 2200/2991 loss 2.7882 lr 2.73e-04 309s
+  step 2400/2991 loss 2.7918 lr 2.72e-04 337s
+  step 2600/2991 loss 2.7956 lr 2.71e-04 365s
+  step 2800/2991 loss 2.7983 lr 2.70e-04 394s
+Epoch 9: train ppl 16.46  valid ppl 32.03  valid ppl w/ wrong article 304.26  (442s)
+  sample: Zully Broussard, a physician, is taking five surgeons to perform a kidney. The donor ' s donor works on a swapping package for 12 people. The donor works to help save his brother, brother and brother.
+  saved best checkpoint
+  step 0/2991 loss 2.7508 lr 2.69e-04 1s
+  step 200/2991 loss 2.6255 lr 2.68e-04 29s
+  step 400/2991 loss 2.6321 lr 2.67e-04 57s
+  step 600/2991 loss 2.6429 lr 2.66e-04 85s
+  step 800/2991 loss 2.6505 lr 2.65e-04 113s
+  step 1000/2991 loss 2.6534 lr 2.64e-04 141s
+  step 1200/2991 loss 2.6601 lr 2.64e-04 169s
+  step 1400/2991 loss 2.6663 lr 2.63e-04 197s
+  step 1600/2991 loss 2.6721 lr 2.62e-04 225s
+  step 1800/2991 loss 2.6780 lr 2.61e-04 253s
+  step 2000/2991 loss 2.6806 lr 2.60e-04 281s
+  step 2200/2991 loss 2.6832 lr 2.59e-04 309s
+  step 2400/2991 loss 2.6885 lr 2.58e-04 337s
+  step 2600/2991 loss 2.6939 lr 2.57e-04 366s
+  step 2800/2991 loss 2.6976 lr 2.56e-04 394s
+Epoch 10: train ppl 14.88  valid ppl 30.32  valid ppl w/ wrong article 311.53  (442s)
+  sample: Zully Broussard selflessly paired up with big data. The American Medical Center is planning to hold a reception center for all patients. The chain is planning to hold a reception reception for all patients.
+  saved best checkpoint
+=== [4/4] Evaluate ===
+{
+  "n_test": 2000,
+  "transformer": {
+    "rouge1": 29.03911541924834,
+    "rouge2": 9.089299481302282,
+    "rougeL": 20.535586305031025,
+    "bertscore_f1": 11.972362651341244,
+    "meteor": 20.344151078249123
+  },
+  "lead3_baseline": {
+    "rouge1": 39.60218347541593,
+    "rouge2": 17.190027787532955,
+    "rougeL": 24.673663522542576,
+    "bertscore_f1": 25.120586323546014,
+    "meteor": 38.07256894183412
+  }
+}
+=== Results ===
+{
+  "n_test": 2000,
+  "transformer": {
+    "rouge1": 29.03911541924834,
+    "rouge2": 9.089299481302282,
+    "rougeL": 20.535586305031025,
+    "bertscore_f1": 11.972362651341244,
+    "meteor": 20.344151078249123
+  },
+  "lead3_baseline": {
+    "rouge1": 39.60218347541593,
+    "rouge2": 17.190027787532955,
+    "rougeL": 24.673663522542576,
+    "bertscore_f1": 25.120586323546014,
+    "meteor": 38.07256894183412
+  }
+}Outputs in: /storage/slurm/home/69070701619@cpe.kmutt.ac.th/deep_learning/results/lab_9/27101
+Job finished on: Sat Nov 14 01:45:41 AM +07 2026
